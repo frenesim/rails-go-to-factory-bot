@@ -1,65 +1,33 @@
-# rails-go-to-factory-bot README
 
-This is the README for your extension "rails-go-to-factory-bot". After writing up a brief description, we recommend including the following sections.
+# Rails Go to Factory Bot
+
+A VS Code extension to navigate to Factory Bot definitions in Rails projects.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension allows you to quickly navigate to Factory Bot definitions in your Rails project. When your cursor is on a `create` or `build` method call, the extension will open the corresponding factory file in the `./test/factories/` folder.
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Place your cursor on a line containing a `create` or `build` method call, such as `create(:user)` or `build("user")`.
+2. Run the command `Rails Go to Factory` from the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
+3. Alternatively, use the keybinding chord `Ctrl+g Ctrl+f` on Windows/Linux or `Cmd+g Cmd+f` on macOS to trigger the command.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+The extension will open the corresponding factory file in the `./test/factories/` folder if it exists. If the file does not exist, an error message will be displayed.
 
-## Requirements
+## Installation
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Install the extension from the VS Code Marketplace.
+2. Ensure your Rails project has Factory Bot installed and configured.
 
-## Extension Settings
+## Configuration
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+No additional configuration is required.
 
-For example:
+## Contributing
 
-This extension contributes the following settings:
+Contributions are welcome! Please open an issue or submit a pull request on the [GitHub repository](https://github.com/frenesim/rails-go-to-factory-bot).
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## License
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/frenesim/rails-go-to-factory-bot/blob/main/LICENSE) file for details.

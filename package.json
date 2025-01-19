@@ -9,7 +9,15 @@
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frenesim/rails-go-to-factory-bot"
+  },
+  "publisher": "Formigagalatica",
   "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:rails-go-to-factory-bot.goTo"
+  ],
   "contributes": {
     "commands": [
       {
