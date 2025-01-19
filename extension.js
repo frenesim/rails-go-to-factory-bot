@@ -1,36 +1,52 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
+const pluralize = require('pluralize')
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+const path = require('path');
+const fs = require('fs');
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "rails-go-to-factory-bot" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('rails-go-to-factory-bot.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
+	let disposable = vscode.commands.registerCommand('rails-go-to-factory-bot.goTo', function () {
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			return;
+		}
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Rails go to factory bot!');
+		const document = editor.document;
+		const selection = editor.selection;
+		const lineText = document.lineAt(selection.active.line).text;
+console.log(lineText);
+		const regex = /\b(?:create|build)(?:\s|\()(?:\"|\:|\'|\s)(\w+)/;
+		const match = lineText.match(regex);
+
+		if (match[1]) {
+			const matchedText = match[1];
+			const factoryFilePath = path.join(vscode.workspace.rootPath, 'test', 'factories', `${pluralize(matchedText)}.rb`);
+
+			if (fs.existsSync(factoryFilePath)) {
+        vscode.workspace.openTextDocument(factoryFilePath).then(doc => {
+          vscode.window.showTextDocument(doc, vscode.ViewColumn.One);
+        });
+			} else {
+				vscode.window.showErrorMessage(`Factory file not found: ${factoryFilePath}`);
+			}
+		} else {
+			vscode.window.showErrorMessage('No matching factory found under cursor.');
+		}
 	});
 
 	context.subscriptions.push(disposable);
 }
 
-// This method is called when your extension is deactivated
+exports.activate = activate;
+
 function deactivate() {}
 
 module.exports = {
 	activate,
 	deactivate
-}
+};
