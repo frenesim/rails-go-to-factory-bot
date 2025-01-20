@@ -2,7 +2,8 @@
   "name": "rails-go-to-factory-bot",
   "displayName": "Rails go to factory bot",
   "description": "A VS Code extension to navigate to Factory Bot definitions in Rails projects.",
-  "version": "0.0.1",
+  "icon": "images/go_to_factory_bot_icon.png",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.96.4"
   },
