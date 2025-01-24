@@ -3,7 +3,7 @@
   "displayName": "Rails go to factory bot",
   "description": "A VS Code extension to navigate to Factory Bot definitions in Rails projects.",
   "icon": "images/go_to_factory_bot_icon.png",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.96.4"
   },
@@ -48,7 +48,7 @@
     "@vscode/test-electron": "^2.2.0",
     "eslint": "^8.26.0",
     "glob": "^8.0.3",
-    "mocha": "^10.1.0",
+    "mocha": "^10.8.2",
     "typescript": "^4.8.4"
   },
   "dependencies": {
