@@ -19,7 +19,7 @@ function activate(context) {
 		const document = editor.document;
 		const selection = editor.selection;
 		const lineText = document.lineAt(selection.active.line).text;
-console.log(lineText);
+
 		const regex = /\b(?:create|build)(?:\s|\()(?:\"|\:|\'|\s)(\w+)/;
 		const match = lineText.match(regex);
 
