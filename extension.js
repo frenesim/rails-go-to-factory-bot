@@ -20,7 +20,7 @@ function activate(context) {
 		const selection = editor.selection;
 		const lineText = document.lineAt(selection.active.line).text;
 
-		const regex = /\b(?:create|build)(?:\s|\()(?:\"|\:|\'|\s)(\w+)/;
+		const regex = /\b(?:create|build|create_list|build_list)(?:\s|\()(?:\"|\:|\'|\s)(\w+)/;
 		const match = lineText.match(regex);
 
 		if (match[1]) {
